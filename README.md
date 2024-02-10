@@ -1,7 +1,7 @@
 <h3>Instructions on how to run the frontend</h3>
 
-In this <b>Student Registration fronten</b> Flutter project replace "localhost" with the local IP address of your machine.
-Update the apiUrl in Flutter app's form.dart file:
+In this <b>Student Registration frontend</b> Flutter project's replace "localhost" with the local IP address of your machine.
+For that Update the apiUrl in Flutter app's form.dart file:
 <br>
 ex:
 final String apiUrl = "http://your_local_ip:8000/api/students/";
