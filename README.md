@@ -3,11 +3,11 @@
 <br>*Before the flutter app run do these changes*<br>
 
 In this <b>Student Registration frontend</b> Flutter project's replace "localhost" with the local IP address of your machine.<br>
-For that Update the apiUrl in Flutter app's form.dart file and detail.dart file:
+For that Update the apiUrl in Flutter app's form.dart file and details.dart file:
 <br><br>
-ex:<br> <u>form.dart</u>
-final String apiUrl = "http://your_local_ip:8000/api/students/";<br>
-<u>form.dart</u><br>
+ex:<br> <u>In form.dart</u> <br>
+final String apiUrl = "http://your_local_ip:8000/api/students/";<br><br>
+<u>In details.dart</u><br>
 final response = await Dio().get('http://your_local_ip:8000/api/students');
 <br><br>
 Replace your_local_ip with the actual IP address you found with run 'ipconfig' in a terminal of your machine .</br>
