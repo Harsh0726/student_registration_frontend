@@ -13,7 +13,7 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        appBar: AppBar(title: const Text('Registered Students Details')),
+        appBar: AppBar(title: const Text('Registered Students:')),
         body: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: FutureBuilder<List<StudentDetails>>(
@@ -60,40 +60,20 @@ class _DetailsState extends State<Details> {
   }
 }
 
-// Future<List<StudentDetails>> fetchAllStudentDetails() async {
-//   final response = await Dio().get('http://192.168.147.190:8000/api/students');
-
-//   if (response.statusCode == 200) {
-//     // If the server returns a 200 OK response, parse the JSON
-//     Iterable<dynamic> data = response.data;
-//     List<StudentDetails> studentList =
-//         data.map((json) => StudentDetails.fromJson(json)).toList();
-//     return studentList;
-//   } else {
-//     // If the server did not return a 200 OK response, throw an exception.
-//     throw Exception('Failed to load student details');
-//   }
-// }
-
 Future<List<StudentDetails>> fetchAllStudentDetails() async {
-  try {
-    final response = await Dio().get('http://192.168.147.190:8000/api/students');
+  final response = await Dio().get('http://192.168.147.190:8000/api/students');
 
-    if (response.statusCode == 200) {
-      // If the server returns a 200 OK response, parse the JSON
-      List<dynamic> data = response.data;
-      List<StudentDetails> studentList = data.map((json) => StudentDetails.fromJson(json)).toList();
-      return studentList;
-    } else {
-      // If the server did not return a 200 OK response, throw an exception.
-      throw Exception('Failed to load student details');
-    }
-  } catch (e) {
-    // Handle Dio errors
-    throw Exception('Failed to load student details: $e');
+  if (response.statusCode == 200) {
+    // If the server returns a 200 OK response, parse the JSON
+    Iterable<dynamic> data = response.data;
+    List<StudentDetails> studentList =
+        data.map((json) => StudentDetails.fromJson(json)).toList();
+    return studentList;
+  } else {
+    // If the server did not return a 200 OK response, throw an exception.
+    throw Exception('Failed to load student details');
   }
 }
-
 
 class StudentDetails {
   final int id;
