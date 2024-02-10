@@ -20,7 +20,7 @@ class _StudentFormState extends State<StudentForm> {
 //  final String apiUrl = "http://localhost:8000/api/students/"; 
 //  in here replace the localhost with your Local IP Address
 
-  final String apiUrl = "http://192.168.8.100:8000/api/students/";
+  final String apiUrl = "http://192.168.147.190:8000/api/students/";
 
   Dio dio = Dio();
 

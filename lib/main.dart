@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:student_registration_frontend/screens/details.dart';
 import 'package:student_registration_frontend/screens/form.dart';
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,7 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.purple.shade100)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Details()));
+              },
               child: Text('View Registered Students')),
         ],
       )),
