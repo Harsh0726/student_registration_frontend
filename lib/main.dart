@@ -41,19 +41,18 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           TextButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                 overlayColor: MaterialStateProperty.resolveWith<Color?>(
                   (Set<MaterialState> states) {
                     if (states.contains(MaterialState.hovered))
-                      return Colors.blue.withOpacity(0.04);
+                      return Colors.deepPurple.withOpacity(0.04);
                     if (states.contains(MaterialState.focused) ||
                         states.contains(MaterialState.pressed))
-                      return Colors.blue.withOpacity(0.12);
+                      return Colors.deepPurple.withOpacity(0.12);
                     return null; // Defer to the widget's default.
                   },
                 ),
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.black12),
+                    MaterialStateProperty.all<Color>(Colors.purple.shade100),
               ),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentForm()));
@@ -61,20 +60,18 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Register New Student')),
           TextButton(
               style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
                   overlayColor: MaterialStateProperty.resolveWith<Color?>(
                     (Set<MaterialState> states) {
                       if (states.contains(MaterialState.hovered))
-                        return Colors.blue.withOpacity(0.04);
+                        return Colors.deepPurple.withOpacity(0.04);
                       if (states.contains(MaterialState.focused) ||
                           states.contains(MaterialState.pressed))
-                        return Colors.blue.withOpacity(0.12);
+                        return Colors.deepPurple.withOpacity(0.12);
                       return null; // Defer to the widget's default.
                     },
                   ),
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black12)),
+                      MaterialStateProperty.all<Color>(Colors.purple.shade100)),
               onPressed: () {},
               child: Text('View Registered Students')),
         ],
