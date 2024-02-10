@@ -61,6 +61,8 @@ class _DetailsState extends State<Details> {
 }
 
 Future<List<StudentDetails>> fetchAllStudentDetails() async {
+
+//  in here .get('http://localhost:8000/api/students/') -> replace the localhost with your Local IP Address
   final response = await Dio().get('http://192.168.147.190:8000/api/students');
 
   if (response.statusCode == 200) {
