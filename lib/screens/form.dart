@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:student_registration_frontend/components/customBtn.dart';
 
 class StudentForm extends StatefulWidget {
   const StudentForm({Key? key}) : super(key: key);
@@ -114,14 +115,14 @@ class _StudentFormState extends State<StudentForm> {
                 // submit btn
                 SizedBox(height: 16),
                 Center(
-                  child: ElevatedButton(
+                  child: CustomButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // submit actions
                         submitForm();
                       }
                     },
-                    child: Text('Submit'),
+                    text: 'Save',
                   ),
                 ),
               ],

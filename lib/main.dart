@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:student_registration_frontend/components/customBtn.dart';
 import 'package:student_registration_frontend/screens/details.dart';
 import 'package:student_registration_frontend/screens/form.dart';
-// import 'package:dio/dio.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -37,49 +37,37 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Student Registration System"),
+        centerTitle: true,
+        backgroundColor: Colors.purple.shade200,
+      ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextButton(
-              style: ButtonStyle(
-                overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                  (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.hovered))
-                      return Colors.deepPurple.withOpacity(0.04);
-                    if (states.contains(MaterialState.focused) ||
-                        states.contains(MaterialState.pressed))
-                      return Colors.deepPurple.withOpacity(0.12);
-                    return null; // Defer to the widget's default.
-                  },
-                ),
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.purple.shade100),
-              ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentForm()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const StudentForm()),
+                );
               },
-              child: Text('Register New Student')),
-          TextButton(
-              style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered))
-                        return Colors.deepPurple.withOpacity(0.04);
-                      if (states.contains(MaterialState.focused) ||
-                          states.contains(MaterialState.pressed))
-                        return Colors.deepPurple.withOpacity(0.12);
-                      return null; // Defer to the widget's default.
-                    },
-                  ),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.purple.shade100)),
+              text: 'Register New Student',
+            ),
+            CustomButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Details()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Details()),
+                );
               },
-              child: Text('View Registered Students')),
-        ],
-      )),
+              text: 'View Registered Students',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+
